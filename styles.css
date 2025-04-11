@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    background-color: #00a8f3; /* Vibrant blue background */
+    font-family: "Comic Sans MS", cursive, sans-serif; /* Classic 90s font */
+    color: #000; /* Black text for contrast */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container */
+  .container {
+    width: 80%;
+    max-width: 960px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom right, #f2ff00, #ff8c00); /* Bright gradient background */
+    border: 5px solid #ff00ff; /* Neon pink border */
+    box-shadow: 0 0 20px #000;
+    padding: 20px;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, #ff00ff, #ff4500); /* Gradient header */
+    border-bottom: 5px dotted #00ff00; /* Neon green dotted line */
+  }
+  
+  header h1 {
+    font-size: 48px;
+    color: #ffffff; /* White text */
+    text-shadow: 2px 2px 0 #000; /* Black text shadow for a 3D effect */
+  }
+  
+  /* Navigation */
+  nav {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+    background: #ff4500;
+    padding: 10px 20px;
+    margin: 5px;
+    display: inline-block;
+    border: 3px outset #ff8c00; /* Classic 3D button effect */
+    border-radius: 5px;
+  }
+  
+  nav a:hover {
+    background: #ff00ff; /* Neon pink hover */
+    border-style: inset; /* Button pressed effect */
+  }
+  
+  /* Section */
+  section {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #ffffff; /* White background for content */
+    border: 3px groove #00ff00; /* Skeuomorphic groove border */
+  }
+  
+  section h2 {
+    font-size: 32px;
+    color: #0000ff; /* Bright blue headings */
+    text-shadow: 1px 1px 0 #ff4500;
+  }
+  
+  section p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, #00ff00, #0000ff); /* Green to blue gradient */
+    color: #fff;
+    font-size: 14px;
+    border-top: 5px dashed #ff4500; /* Dashed border for footer */
+  }
+  
+  /* Animation */
+  @keyframes rainbow {
+    0% { color: #ff0000; }
+    25% { color: #00ff00; }
+    50% { color: #0000ff; }
+    75% { color: #ffff00; }
+    100% { color: #ff0000; }
+  }
+  
+  .rainbow-text {
+    animation: rainbow 2s infinite;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  /* Image Style */
+  img {
+    border: 5px solid #ff00ff;
+    box-shadow: 5px 5px 0 #00ff00;
+    max-width: 100%;
+    margin: 10px 0;
+  }
