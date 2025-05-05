@@ -8,5 +8,85 @@
         <h1>Hi! Im Honk-ie!</h1>
         <h3>I do coding and stuff, making games sometimes</h3>
         <p>AAAAAAAAAAAAAAAGH</p>
+        <script>
+            // Canvas setup
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.createElement("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext("2d");
+
+    // Ball class
+    class Ball {
+        constructor(x, y, radius, color, dx, dy) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.color = color;
+            this.dx = dx; // Horizontal velocity
+            this.dy = dy; // Vertical velocity
+            this.gravity = 0.5; // Gravity
+            this.friction = 0.9; // Friction
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        update() {
+            // Add gravity
+            this.dy += this.gravity;
+
+            // Move the ball
+            this.x += this.dx;
+            this.y += this.dy;
+
+            // Bounce off the ground
+            if (this.y + this.radius > canvas.height) {
+                this.y = canvas.height - this.radius;
+                this.dy *= -this.friction; // Reverse and reduce velocity
+            }
+
+            // Bounce off the walls
+            if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                this.dx *= -this.friction;
+            }
+
+            // Keep the ball within horizontal bounds
+            if (this.x - this.radius < 0) this.x = this.radius;
+            if (this.x + this.radius > canvas.width) this.x = canvas.width - this.radius;
+
+            this.draw();
+        }
+    }
+
+    // Create multiple balls
+    const balls = [];
+    for (let i = 0; i < 10; i++) {
+        const radius = 20;
+        const x = Math.random() * (canvas.width - radius * 2) + radius;
+        const y = Math.random() * (canvas.height - radius * 2);
+        const dx = (Math.random() - 0.5) * 4; // Random horizontal speed
+        const dy = (Math.random() - 0.5) * 4; // Random vertical speed
+        const color = `hsl(${Math.random() * 360}, 100%, 50%)`; // Random color
+        balls.push(new Ball(x, y, radius, color, dx, dy));
+    }
+
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        balls.forEach(ball => ball.update());
+    }
+
+    animate();
+});
+        </script>
     </body>
 </html>
